@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A56E118927AE9E0500C146F4 /* ControlsOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56E118827AE9E0500C146F4 /* ControlsOverlay.swift */; };
+		A56E118B27AEA19700C146F4 /* Intents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A56E118A27AEA19700C146F4 /* Intents.intentdefinition */; };
+		A56E118D27AEA38B00C146F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56E118C27AEA38B00C146F4 /* AppDelegate.swift */; };
+		A56E118F27AEA43100C146F4 /* IntentHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56E118E27AEA43100C146F4 /* IntentHandlers.swift */; };
+		A57EC16A27AE76E200E8A38C /* VOIPCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57EC16927AE76E200E8A38C /* VOIPCoordinator.swift */; };
+		A5B09A1F27ADB75C00F08BE6 /* MatrixVOIPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B09A1E27ADB75C00F08BE6 /* MatrixVOIPApp.swift */; };
+		A5B09A2127ADB75C00F08BE6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B09A2027ADB75C00F08BE6 /* ContentView.swift */; };
+		A5B09A2327ADB75F00F08BE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5B09A2227ADB75F00F08BE6 /* Assets.xcassets */; };
+		A5B09A2627ADB75F00F08BE6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5B09A2527ADB75F00F08BE6 /* Preview Assets.xcassets */; };
+		A5B09A2E27ADB77700F08BE6 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B09A2D27ADB77700F08BE6 /* WebView.swift */; };
+		A5B09A4B27ADF7CB00F08BE6 /* MatrixVOIP.sdef in Resources */ = {isa = PBXBuildFile; fileRef = A5B09A4A27ADF7CB00F08BE6 /* MatrixVOIP.sdef */; };
+		A5B09A4D27ADF81F00F08BE6 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B09A4C27ADF81F00F08BE6 /* Commands.swift */; };
+		A5C35EB127AE892400667A20 /* CaptureDeviceToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C35EB027AE892400667A20 /* CaptureDeviceToggle.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A56E118827AE9E0500C146F4 /* ControlsOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsOverlay.swift; sourceTree = "<group>"; };
+		A56E118A27AEA19700C146F4 /* Intents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Intents.intentdefinition; sourceTree = "<group>"; };
+		A56E118C27AEA38B00C146F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A56E118E27AEA43100C146F4 /* IntentHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandlers.swift; sourceTree = "<group>"; };
+		A57EC16927AE76E200E8A38C /* VOIPCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VOIPCoordinator.swift; sourceTree = "<group>"; };
+		A5B09A1B27ADB75C00F08BE6 /* MatrixVOIP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatrixVOIP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5B09A1E27ADB75C00F08BE6 /* MatrixVOIPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixVOIPApp.swift; sourceTree = "<group>"; };
+		A5B09A2027ADB75C00F08BE6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A5B09A2227ADB75F00F08BE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A5B09A2527ADB75F00F08BE6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A5B09A2727ADB75F00F08BE6 /* MatrixVOIP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MatrixVOIP.entitlements; sourceTree = "<group>"; };
+		A5B09A2D27ADB77700F08BE6 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		A5B09A4A27ADF7CB00F08BE6 /* MatrixVOIP.sdef */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MatrixVOIP.sdef; sourceTree = "<group>"; };
+		A5B09A4C27ADF81F00F08BE6 /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
+		A5B09A4E27ADF9D900F08BE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A5C35EB027AE892400667A20 /* CaptureDeviceToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureDeviceToggle.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A5B09A1827ADB75C00F08BE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A5B09A1227ADB75C00F08BE6 = {
+			isa = PBXGroup;
+			children = (
+				A5B09A1D27ADB75C00F08BE6 /* MatrixVOIP */,
+				A5B09A1C27ADB75C00F08BE6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A5B09A1C27ADB75C00F08BE6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A5B09A1B27ADB75C00F08BE6 /* MatrixVOIP.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A5B09A1D27ADB75C00F08BE6 /* MatrixVOIP */ = {
+			isa = PBXGroup;
+			children = (
+				A5B09A4E27ADF9D900F08BE6 /* Info.plist */,
+				A5B09A1E27ADB75C00F08BE6 /* MatrixVOIPApp.swift */,
+				A5B09A2027ADB75C00F08BE6 /* ContentView.swift */,
+				A5B09A2D27ADB77700F08BE6 /* WebView.swift */,
+				A57EC16927AE76E200E8A38C /* VOIPCoordinator.swift */,
+				A5C35EB027AE892400667A20 /* CaptureDeviceToggle.swift */,
+				A56E118827AE9E0500C146F4 /* ControlsOverlay.swift */,
+				A5B09A4F27ADFC6900F08BE6 /* Scripting */,
+				A5B09A2227ADB75F00F08BE6 /* Assets.xcassets */,
+				A5B09A2727ADB75F00F08BE6 /* MatrixVOIP.entitlements */,
+				A5B09A2427ADB75F00F08BE6 /* Preview Content */,
+			);
+			path = MatrixVOIP;
+			sourceTree = "<group>";
+		};
+		A5B09A2427ADB75F00F08BE6 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A5B09A2527ADB75F00F08BE6 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A5B09A4F27ADFC6900F08BE6 /* Scripting */ = {
+			isa = PBXGroup;
+			children = (
+				A5B09A4C27ADF81F00F08BE6 /* Commands.swift */,
+				A5B09A4A27ADF7CB00F08BE6 /* MatrixVOIP.sdef */,
+				A56E118C27AEA38B00C146F4 /* AppDelegate.swift */,
+				A56E118E27AEA43100C146F4 /* IntentHandlers.swift */,
+				A56E118A27AEA19700C146F4 /* Intents.intentdefinition */,
+			);
+			path = Scripting;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A5B09A1A27ADB75C00F08BE6 /* MatrixVOIP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5B09A2A27ADB75F00F08BE6 /* Build configuration list for PBXNativeTarget "MatrixVOIP" */;
+			buildPhases = (
+				A5B09A1727ADB75C00F08BE6 /* Sources */,
+				A5B09A1827ADB75C00F08BE6 /* Frameworks */,
+				A5B09A1927ADB75C00F08BE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MatrixVOIP;
+			productName = MatrixVOIP;
+			productReference = A5B09A1B27ADB75C00F08BE6 /* MatrixVOIP.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A5B09A1327ADB75C00F08BE6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					A5B09A1A27ADB75C00F08BE6 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = A5B09A1627ADB75C00F08BE6 /* Build configuration list for PBXProject "MatrixVOIP" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A5B09A1227ADB75C00F08BE6;
+			productRefGroup = A5B09A1C27ADB75C00F08BE6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A5B09A1A27ADB75C00F08BE6 /* MatrixVOIP */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A5B09A1927ADB75C00F08BE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5B09A2627ADB75F00F08BE6 /* Preview Assets.xcassets in Resources */,
+				A5B09A2327ADB75F00F08BE6 /* Assets.xcassets in Resources */,
+				A5B09A4B27ADF7CB00F08BE6 /* MatrixVOIP.sdef in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A5B09A1727ADB75C00F08BE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5B09A2E27ADB77700F08BE6 /* WebView.swift in Sources */,
+				A5B09A2127ADB75C00F08BE6 /* ContentView.swift in Sources */,
+				A57EC16A27AE76E200E8A38C /* VOIPCoordinator.swift in Sources */,
+				A56E118D27AEA38B00C146F4 /* AppDelegate.swift in Sources */,
+				A56E118927AE9E0500C146F4 /* ControlsOverlay.swift in Sources */,
+				A5B09A4D27ADF81F00F08BE6 /* Commands.swift in Sources */,
+				A5C35EB127AE892400667A20 /* CaptureDeviceToggle.swift in Sources */,
+				A56E118F27AEA43100C146F4 /* IntentHandlers.swift in Sources */,
+				A56E118B27AEA19700C146F4 /* Intents.intentdefinition in Sources */,
+				A5B09A1F27ADB75C00F08BE6 /* MatrixVOIPApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A5B09A2827ADB75F00F08BE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A5B09A2927ADB75F00F08BE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		A5B09A2B27ADB75F00F08BE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MatrixVOIP/MatrixVOIP.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MatrixVOIP/Preview Content\"";
+				DEVELOPMENT_TEAM = NU8A5Y875P;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MatrixVOIP/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This will allow you to be seen on a call.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This will allow you to be heard on a call.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.pixlwave.MatrixVOIP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A5B09A2C27ADB75F00F08BE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MatrixVOIP/MatrixVOIP.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MatrixVOIP/Preview Content\"";
+				DEVELOPMENT_TEAM = NU8A5Y875P;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MatrixVOIP/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This will allow you to be seen on a call.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This will allow you to be heard on a call.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.pixlwave.MatrixVOIP;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A5B09A1627ADB75C00F08BE6 /* Build configuration list for PBXProject "MatrixVOIP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5B09A2827ADB75F00F08BE6 /* Debug */,
+				A5B09A2927ADB75F00F08BE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5B09A2A27ADB75F00F08BE6 /* Build configuration list for PBXNativeTarget "MatrixVOIP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5B09A2B27ADB75F00F08BE6 /* Debug */,
+				A5B09A2C27ADB75F00F08BE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A5B09A1327ADB75C00F08BE6 /* Project object */;
+}

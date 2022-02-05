@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+
+<dictionary title="MatrixVOIP">
+    <suite name="MatrixVOIP Suite" code="MXVP" description="MatrixVOIP Scripts">
+        <command name="toggleCamera" code="mxvptcam" description="Toggle the camera on or off">
+            <cocoa class="MatrixVOIP.ToggleCameraCommand"/>
+        </command>
+        <command name="toggleMicrophone" code="mxvptmic" description="Toggle the microphone on or off">
+            <cocoa class="MatrixVOIP.ToggleMicrophoneCommand"/>
+        </command>
+        <command name="joinCall" code="mxvpjoin" description="Join the specified call">
+            <cocoa class="MatrixVOIP.JoinCallCommand"/>
+            <direct-parameter description="A link for the call to join">
+                <type type="text"/>
+            </direct-parameter>
+        </command>
+        <command name="leaveCall" code="mxvpleav" description="Leave the current call">
+            <cocoa class="MatrixVOIP.LeaveCallCommand"/>
+        </command>
+    </suite>
+</dictionary>
