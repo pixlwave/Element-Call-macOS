@@ -3,14 +3,14 @@ import Intents
 class IntentHandler: NSObject, ToggleCameraIntentHandling, ToggleMicrophoneIntentHandling, JoinCallIntentHandling, LeaveCallIntentHandling {
     func handle(intent: ToggleCameraIntent) async -> ToggleCameraIntentResponse {
         DispatchQueue.main.async {
-            NotificationCenter.default.post(name: .toggleCamera, object: nil)
+            NotificationCenter.default.post(name: .toggleDevice, object: CaptureDevice.camera)
         }
         return ToggleCameraIntentResponse(code: .success, userActivity: nil)
     }
     
     func handle(intent: ToggleMicrophoneIntent) async -> ToggleMicrophoneIntentResponse {
         DispatchQueue.main.async {
-            NotificationCenter.default.post(name: .toggleMicrophone, object: nil)
+            NotificationCenter.default.post(name: .toggleDevice, object: CaptureDevice.microphone)
         }
         return ToggleMicrophoneIntentResponse(code: .success, userActivity: nil)
     }

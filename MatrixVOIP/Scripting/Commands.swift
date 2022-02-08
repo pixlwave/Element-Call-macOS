@@ -1,15 +1,17 @@
 import Foundation
 
-@objcMembers class ToggleCameraCommand: NSScriptCommand {
+@objcMembers class ToggleDeviceCommand: NSScriptCommand {
     override func performDefaultImplementation() -> Any? {
-        NotificationCenter.default.post(name: .toggleCamera, object: nil)
-        return nil
-    }
-}
-
-@objcMembers class ToggleMicrophoneCommand: NSScriptCommand {
-    override func performDefaultImplementation() -> Any? {
-        NotificationCenter.default.post(name: .toggleMicrophone, object: nil)
+        guard
+            let rawValue = evaluatedArguments?[""] as? Int,
+            let device = CaptureDevice(rawValue: rawValue)
+        else {
+            scriptErrorNumber = Self.parameterErrorNumber
+            scriptErrorString = "Pass one of camera|microphone to the toggle command."
+            return nil
+        }
+        
+        NotificationCenter.default.post(name: .toggleDevice, object: device)
         return nil
     }
 }
@@ -17,7 +19,7 @@ import Foundation
 @objcMembers class JoinCallCommand: NSScriptCommand {
     override func performDefaultImplementation() -> Any? {
         guard var callLink = evaluatedArguments?[""] as? String else {
-            scriptErrorNumber = -50
+            scriptErrorNumber = Self.parameterErrorNumber
             scriptErrorString = "Parameter error: joinCall requires a parameter containing the call link to join."
             return nil
         }
@@ -47,9 +49,12 @@ import Foundation
     }
 }
 
+extension NSScriptCommand {
+    static let parameterErrorNumber = -50
+}
+
 extension NSNotification.Name {
-    static let toggleMicrophone = NSNotification.Name("toggleMicrophone")
-    static let toggleCamera = NSNotification.Name("toggleCamera")
+    static let toggleDevice = NSNotification.Name("toggleDevice")
     static let joinCall = NSNotification.Name("joinCall")
     static let leaveCall = NSNotification.Name("leaveCall")
 }

@@ -2,20 +2,24 @@
 <!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
 
 <dictionary title="MatrixVOIP">
-    <suite name="MatrixVOIP Suite" code="MXVP" description="MatrixVOIP Scripts">
-        <command name="toggleCamera" code="mxvptcam" description="Toggle the camera on or off">
-            <cocoa class="MatrixVOIP.ToggleCameraCommand"/>
+    <suite name="MatrixVOIP Suite" code="mxvp" description="MatrixVOIP Scripts.">
+        <enumeration name="capture device" code="cdev">
+            <enumerator name="camera" code="cam " description="The camera device."/>
+            <enumerator name="microphone" code="mic " description="The microphone device."/>
+        </enumeration>
+        <command name="toggle" code="mxvptogl" description="Toggle the chosen device on or off.">
+            <direct-parameter description="The capture device to be toggled.">
+                <type type="capture device"/>
+            </direct-parameter>
+            <cocoa class="MatrixVOIP.ToggleDeviceCommand"/>
         </command>
-        <command name="toggleMicrophone" code="mxvptmic" description="Toggle the microphone on or off">
-            <cocoa class="MatrixVOIP.ToggleMicrophoneCommand"/>
-        </command>
-        <command name="joinCall" code="mxvpjoin" description="Join the specified call">
+        <command name="join" code="mxvpjoin" description="Join the specified call.">
             <cocoa class="MatrixVOIP.JoinCallCommand"/>
-            <direct-parameter description="A link for the call to join">
+            <direct-parameter description="The link of the call to be joined.">
                 <type type="text"/>
             </direct-parameter>
         </command>
-        <command name="leaveCall" code="mxvpleav" description="Leave the current call">
+        <command name="leave" code="mxvpleav" description="Leave the current call.">
             <cocoa class="MatrixVOIP.LeaveCallCommand"/>
         </command>
     </suite>

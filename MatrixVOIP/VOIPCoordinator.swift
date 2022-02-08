@@ -37,22 +37,30 @@ class VOIPCoordinator: NSObject, ObservableObject {
             }
             
             // Listen for notifications published by AppleScript commands
-            NotificationCenter.default.publisher(for: .toggleCamera, object: nil)
-                .sink { _ in self.toggleCamera() }
-                .store(in: &cancellables)
-            
-            NotificationCenter.default.publisher(for: .toggleMicrophone, object: nil)
-                .sink { _ in self.toggleMicrophone() }
+            NotificationCenter.default.publisher(for: .toggleDevice, object: nil)
+                .sink(receiveValue: toggleDevice)
                 .store(in: &cancellables)
         }
         
         NotificationCenter.default.publisher(for: .joinCall, object: nil)
-            .sink { self.joinCall($0) }
+            .sink(receiveValue: joinCall)
             .store(in: &cancellables)
         
         NotificationCenter.default.publisher(for: .leaveCall, object: nil)
             .sink { _ in self.leaveCall() }
             .store(in: &cancellables)
+    }
+    
+    @available(macOS 12.0, *)
+    func toggleDevice(_ notification: Notification) {
+        guard let device = notification.object as? CaptureDevice else { return }
+        
+        switch device {
+        case .camera:
+            toggleCamera()
+        case .microphone:
+            toggleMicrophone()
+        }
     }
     
     func joinCall(_ notification: Notification) {
