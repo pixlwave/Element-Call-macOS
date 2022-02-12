@@ -14,9 +14,10 @@ struct ContentView: View {
     }
 }
 
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(WebView.Coordinator(url: URL(string: "https://matrixvoip.dev/")!))
+            .environmentObject(WebView.Coordinator(url: MatrixVOIPApp.url))
     }
 }

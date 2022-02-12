@@ -3,6 +3,7 @@ import SwiftUI
 @available(macOS 12.0, *)
 struct ControlsOverlay: View {
     @EnvironmentObject private var voipCoordinator: VOIPCoordinator
+    @AppStorage("showBackButton") private var showBackButton = false
     
     private var cameraIsActive: Bool {
         voipCoordinator.cameraCaptureState == .active
@@ -14,12 +15,19 @@ struct ControlsOverlay: View {
     
     var body: some View {
         HStack(spacing: 8) {
+            if showBackButton {
+                OverlayButton(imageName: "chevron.left", action: voipCoordinator.goBack)
+                    .transition(.scale(scale: 0, anchor: .trailing))
+                Divider()
+                    .frame(height: 22)
+            }
+            
             CaptureDeviceToggle(device: .camera,
-                                isEnabled: cameraIsActive,
+                                isOn: cameraIsActive,
                                 action: voipCoordinator.toggleCamera)
             
             CaptureDeviceToggle(device: .microphone,
-                                isEnabled: microphoneIsActive,
+                                isOn: microphoneIsActive,
                                 action: voipCoordinator.toggleMicrophone)
         }
         .padding(.horizontal, 7)
@@ -29,3 +37,13 @@ struct ControlsOverlay: View {
     }
 }
 
+
+@available(macOS 12.0, *)
+struct Previews_ControlsOverlay_Previews: PreviewProvider {
+    static var previews: some View {
+        ControlsOverlay()
+            .padding()
+            .background(Color.gray)
+            .environmentObject(VOIPCoordinator(url: MatrixVOIPApp.url))
+    }
+}

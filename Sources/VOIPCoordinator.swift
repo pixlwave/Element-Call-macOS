@@ -81,13 +81,33 @@ class VOIPCoordinator: NSObject, ObservableObject {
     func leaveCall() {
         webView.load(URLRequest(url: url))
     }
+    
+    func goBack() {
+        webView.goBack()
+    }
+    
+    func copyURL() {
+        guard let webViewURL = webView.url else { return }
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setData(webViewURL.dataRepresentation, forType: .URL)
+    }
 }
 
 // MARK: WebKit Delegates
 extension VOIPCoordinator: WKNavigationDelegate, WKUIDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction) async -> WKNavigationActionPolicy {
-        guard navigationAction.request.url?.host == url.host else { return .cancel }
-        return .allow
+        // Allow any content from the main URL.
+        if navigationAction.request.url?.host == url.host {
+            return .allow
+        }
+        
+        // Additionally allow any embedded content such as captchas.
+        if let targetFrame = navigationAction.targetFrame, !targetFrame.isMainFrame {
+            return .allow
+        }
+        
+        // Otherwise the request is invalid.
+        return .cancel
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
