@@ -40,7 +40,7 @@
 		A5B09A2D27ADB77700F08BE6 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		A5B09A4A27ADF7CB00F08BE6 /* MatrixVOIP.sdef */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MatrixVOIP.sdef; sourceTree = "<group>"; };
 		A5B09A4C27ADF81F00F08BE6 /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
-		A5B09A4E27ADF9D900F08BE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A5B09A4E27ADF9D900F08BE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5C35EB027AE892400667A20 /* CaptureDeviceToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureDeviceToggle.swift; sourceTree = "<group>"; };
 		A5EBE10F27B332CE006CB3FF /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,10 +56,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A556437327B79C5A00FEBE71 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A5B09A4E27ADF9D900F08BE6 /* Info.plist */,
+				A5B09A2227ADB75F00F08BE6 /* Assets.xcassets */,
+				A57036A327B2DEFA00C15CEB /* MatrixVOIP.icns */,
+				A5B09A2727ADB75F00F08BE6 /* MatrixVOIP.entitlements */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		A5B09A1227ADB75C00F08BE6 = {
 			isa = PBXGroup;
 			children = (
-				A5B09A1D27ADB75C00F08BE6 /* MatrixVOIP */,
+				A5B09A1D27ADB75C00F08BE6 /* Sources */,
+				A556437327B79C5A00FEBE71 /* Resources */,
+				A5B09A2427ADB75F00F08BE6 /* Preview Content */,
 				A5B09A1C27ADB75C00F08BE6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,10 +85,9 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A5B09A1D27ADB75C00F08BE6 /* MatrixVOIP */ = {
+		A5B09A1D27ADB75C00F08BE6 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				A5B09A4E27ADF9D900F08BE6 /* Info.plist */,
 				A5B09A1E27ADB75C00F08BE6 /* MatrixVOIPApp.swift */,
 				A5B09A2027ADB75C00F08BE6 /* ContentView.swift */,
 				A5B09A2D27ADB77700F08BE6 /* WebView.swift */,
@@ -83,12 +95,8 @@
 				A5C35EB027AE892400667A20 /* CaptureDeviceToggle.swift */,
 				A56E118827AE9E0500C146F4 /* ControlsOverlay.swift */,
 				A5B09A4F27ADFC6900F08BE6 /* Scripting */,
-				A5B09A2227ADB75F00F08BE6 /* Assets.xcassets */,
-				A57036A327B2DEFA00C15CEB /* MatrixVOIP.icns */,
-				A5B09A2727ADB75F00F08BE6 /* MatrixVOIP.entitlements */,
-				A5B09A2427ADB75F00F08BE6 /* Preview Content */,
 			);
-			path = MatrixVOIP;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		A5B09A2427ADB75F00F08BE6 /* Preview Content */ = {
@@ -321,16 +329,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = MatrixVOIP/MatrixVOIP.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/MatrixVOIP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_ASSET_PATHS = "\"MatrixVOIP/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Preview Content\"";
 				DEVELOPMENT_TEAM = NU8A5Y875P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MatrixVOIP/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This will allow you to be seen on a call.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This will allow you to be heard on a call.";
@@ -352,16 +360,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CODE_SIGN_ENTITLEMENTS = MatrixVOIP/MatrixVOIP.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Resources/MatrixVOIP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_ASSET_PATHS = "\"MatrixVOIP/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Preview Content\"";
 				DEVELOPMENT_TEAM = NU8A5Y875P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MatrixVOIP/Info.plist;
+				INFOPLIST_FILE = Resources/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "This will allow you to be seen on a call.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This will allow you to be heard on a call.";
