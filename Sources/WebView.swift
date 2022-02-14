@@ -7,11 +7,7 @@ struct WebView: NSViewRepresentable {
     let coordinator: VOIPCoordinator
     
     func makeNSView(context: Context) -> WKWebView {
-        let webView = context.coordinator.webView
-        webView.navigationDelegate = context.coordinator
-        webView.uiDelegate = context.coordinator
-        webView.load(URLRequest(url: context.coordinator.url))
-        return webView
+        context.coordinator.webView
     }
     
     func updateNSView(_ view: WKWebView, context: Context) {

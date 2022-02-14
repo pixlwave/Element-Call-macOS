@@ -49,6 +49,11 @@ class VOIPCoordinator: NSObject, ObservableObject {
         NotificationCenter.default.publisher(for: .leaveCall, object: nil)
             .sink { _ in self.leaveCall() }
             .store(in: &cancellables)
+        
+        // Configure web view and load the base url.
+        webView.navigationDelegate = self
+        webView.uiDelegate = self
+        webView.load(URLRequest(url: url))
     }
     
     @available(macOS 12.0, *)
