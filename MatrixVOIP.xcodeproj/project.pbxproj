@@ -14,6 +14,8 @@
 		A56E118F27AEA43100C146F4 /* IntentHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56E118E27AEA43100C146F4 /* IntentHandlers.swift */; };
 		A57036A427B2DEFA00C15CEB /* MatrixVOIP.icns in Resources */ = {isa = PBXBuildFile; fileRef = A57036A327B2DEFA00C15CEB /* MatrixVOIP.icns */; };
 		A57EC16A27AE76E200E8A38C /* VOIPCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57EC16927AE76E200E8A38C /* VOIPCoordinator.swift */; };
+		A5A188DF27BB027400DCF129 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = A5A188DE27BB027400DCF129 /* Sparkle */; };
+		A5A188E227BB034700DCF129 /* SparkleUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A188E127BB034700DCF129 /* SparkleUpdater.swift */; };
 		A5B09A1F27ADB75C00F08BE6 /* MatrixVOIPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B09A1E27ADB75C00F08BE6 /* MatrixVOIPApp.swift */; };
 		A5B09A2127ADB75C00F08BE6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B09A2027ADB75C00F08BE6 /* ContentView.swift */; };
 		A5B09A2327ADB75F00F08BE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5B09A2227ADB75F00F08BE6 /* Assets.xcassets */; };
@@ -33,6 +35,7 @@
 		A56E118E27AEA43100C146F4 /* IntentHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandlers.swift; sourceTree = "<group>"; };
 		A57036A327B2DEFA00C15CEB /* MatrixVOIP.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = MatrixVOIP.icns; sourceTree = "<group>"; };
 		A57EC16927AE76E200E8A38C /* VOIPCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VOIPCoordinator.swift; sourceTree = "<group>"; };
+		A5A188E127BB034700DCF129 /* SparkleUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkleUpdater.swift; sourceTree = "<group>"; };
 		A5B09A1B27ADB75C00F08BE6 /* MatrixVOIP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatrixVOIP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B09A1E27ADB75C00F08BE6 /* MatrixVOIPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixVOIPApp.swift; sourceTree = "<group>"; };
 		A5B09A2027ADB75C00F08BE6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5A188DF27BB027400DCF129 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +81,14 @@
 				A56E118827AE9E0500C146F4 /* ControlsOverlay.swift */,
 			);
 			path = Overlay;
+			sourceTree = "<group>";
+		};
+		A5A188E027BB032F00DCF129 /* Sparkle */ = {
+			isa = PBXGroup;
+			children = (
+				A5A188E127BB034700DCF129 /* SparkleUpdater.swift */,
+			);
+			path = Sparkle;
 			sourceTree = "<group>";
 		};
 		A5B09A1227ADB75C00F08BE6 = {
@@ -106,6 +118,7 @@
 				A57EC16927AE76E200E8A38C /* VOIPCoordinator.swift */,
 				A556437627B7A45A00FEBE71 /* Overlay */,
 				A5B09A4F27ADFC6900F08BE6 /* Scripting */,
+				A5A188E027BB032F00DCF129 /* Sparkle */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -147,6 +160,9 @@
 			dependencies = (
 			);
 			name = MatrixVOIP;
+			packageProductDependencies = (
+				A5A188DE27BB027400DCF129 /* Sparkle */,
+			);
 			productName = MatrixVOIP;
 			productReference = A5B09A1B27ADB75C00F08BE6 /* MatrixVOIP.app */;
 			productType = "com.apple.product-type.application";
@@ -175,6 +191,9 @@
 				Base,
 			);
 			mainGroup = A5B09A1227ADB75C00F08BE6;
+			packageReferences = (
+				A5A188DD27BB027400DCF129 /* XCRemoteSwiftPackageReference "Sparkle" */,
+			);
 			productRefGroup = A5B09A1C27ADB75C00F08BE6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -205,6 +224,7 @@
 			files = (
 				A5B09A2E27ADB77700F08BE6 /* WebView.swift in Sources */,
 				A5B09A2127ADB75C00F08BE6 /* ContentView.swift in Sources */,
+				A5A188E227BB034700DCF129 /* SparkleUpdater.swift in Sources */,
 				A57EC16A27AE76E200E8A38C /* VOIPCoordinator.swift in Sources */,
 				A56E118D27AEA38B00C146F4 /* AppDelegate.swift in Sources */,
 				A56E118927AE9E0500C146F4 /* ControlsOverlay.swift in Sources */,
@@ -344,7 +364,7 @@
 				CODE_SIGN_ENTITLEMENTS = Resources/MatrixVOIP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Preview Content\"";
 				DEVELOPMENT_TEAM = NU8A5Y875P;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -359,7 +379,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = uk.pixlwave.MatrixVOIP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -375,7 +395,7 @@
 				CODE_SIGN_ENTITLEMENTS = Resources/MatrixVOIP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Preview Content\"";
 				DEVELOPMENT_TEAM = NU8A5Y875P;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -390,7 +410,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = uk.pixlwave.MatrixVOIP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -420,6 +440,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A5A188DD27BB027400DCF129 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A5A188DE27BB027400DCF129 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5A188DD27BB027400DCF129 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A5B09A1327ADB75C00F08BE6 /* Project object */;
 }

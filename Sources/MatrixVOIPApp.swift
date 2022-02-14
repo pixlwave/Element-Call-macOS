@@ -10,6 +10,7 @@ struct MatrixVOIPApp: App {
     @AppStorage("developerExtrasEnabled") private var developerExtrasEnabled = false
     
     @StateObject private var voipCoordinator = VOIPCoordinator(url: MatrixVOIPApp.url)
+    @StateObject private var sparkleUpdater = SparkleUpdater()
     
     var body: some Scene {
         WindowGroup {
@@ -42,6 +43,11 @@ struct MatrixVOIPApp: App {
                 if #available(macOS 12.0, *) {
                     Toggle("Show Back Button", isOn: $showBackButton.animation())
                 }
+            }
+            
+            CommandGroup(after: .appInfo) {
+                Button("Check for Updates…", action: sparkleUpdater.checkForUpdates)
+                    .disabled(!sparkleUpdater.canCheckForUpdates)
             }
         }
     }

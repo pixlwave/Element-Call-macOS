@@ -22,5 +22,9 @@
 	</array>
 	<key>OSAScriptingDefinition</key>
 	<string>MatrixVOIP.sdef</string>
+	<key>SUFeedURL</key>
+	<string>https://pixlwave.github.io/MatrixVOIPAppcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>WKAQP1ywMMLtFGd0IaOjKywQtA8K6bd+/LbJoiJTAng=</string>
 </dict>
 </plist>
