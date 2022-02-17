@@ -5,42 +5,22 @@ class VOIPCoordinator: NSObject, ObservableObject {
     @objc let webView = WKWebView()
     let url: URL
     
-    @available(macOS 12.0, *)
-    @Published private(set) var cameraCaptureState: WKMediaCaptureState?
-    @available(macOS 12.0, *)
-    @Published private(set) var microphoneCaptureState: WKMediaCaptureState?
-    
     @Published private(set) var isInCall = false
-    
-    private var cameraCaptureStateObservation: NSKeyValueObservation?
-    private var microphoneCaptureStateObservation: NSKeyValueObservation?
     
     var cancellables: Set<AnyCancellable> = []
     
     init(url: URL) {
         self.url = url
         
-        if #available(macOS 12.0, *) {
-            cameraCaptureState = webView.cameraCaptureState
-            microphoneCaptureState = webView.microphoneCaptureState
-        }
-        
         super.init()
         
-        if #available(macOS 12.0, *) {
-            // Observe the capture state
-            cameraCaptureStateObservation = observe(\.webView.cameraCaptureState) { coordinator, change in
-                coordinator.cameraCaptureState = coordinator.webView.cameraCaptureState
-            }
-            microphoneCaptureStateObservation = observe(\.webView.microphoneCaptureState) { coordinator, _ in
-                coordinator.microphoneCaptureState = coordinator.webView.microphoneCaptureState
-            }
-            
-            // Listen for notifications published by AppleScript commands
-            NotificationCenter.default.publisher(for: .toggleDevice, object: nil)
-                .sink(receiveValue: toggleDevice)
-                .store(in: &cancellables)
-        }
+        // Observe the capture state
+        // TODO: Observe the state in the web view?
+        
+        // Listen for notifications published by AppleScript commands
+        NotificationCenter.default.publisher(for: .toggleDevice, object: nil)
+            .sink(receiveValue: toggleDevice)
+            .store(in: &cancellables)
         
         NotificationCenter.default.publisher(for: .joinCall, object: nil)
             .sink(receiveValue: joinCall)
@@ -56,7 +36,6 @@ class VOIPCoordinator: NSObject, ObservableObject {
         webView.load(URLRequest(url: url))
     }
     
-    @available(macOS 12.0, *)
     func toggleDevice(_ notification: Notification) {
         guard let device = notification.object as? CaptureDevice else { return }
         
@@ -73,14 +52,12 @@ class VOIPCoordinator: NSObject, ObservableObject {
         webView.load(URLRequest(url: callURL))
     }
     
-    @available(macOS 12.0, *)
     func toggleCamera() {
-        webView.setCameraCaptureState(webView.cameraCaptureState == .active ? .muted : .active)
+        webView.evaluateJavaScript("groupCall.setLocalVideoMuted(!groupCall.isLocalVideoMuted())", completionHandler: nil)
     }
     
-    @available(macOS 12.0, *)
     func toggleMicrophone() {
-        webView.setMicrophoneCaptureState(webView.microphoneCaptureState == .active ? .muted : .active)
+        webView.evaluateJavaScript("groupCall.setMicrophoneMuted(!groupCall.isMicrophoneMuted())", completionHandler: nil)
     }
     
     func leaveCall() {
@@ -89,6 +66,10 @@ class VOIPCoordinator: NSObject, ObservableObject {
     
     func goBack() {
         webView.goBack()
+    }
+    
+    func goForward() {
+        webView.goForward()
     }
     
     func copyURL() {
@@ -115,6 +96,7 @@ extension VOIPCoordinator: WKNavigationDelegate, WKUIDelegate {
         return .cancel
     }
     
+    #warning("Not called whilst navigating through app")
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         isInCall = webView.url != url
     }

@@ -23,7 +23,7 @@
 		A5B09A2E27ADB77700F08BE6 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B09A2D27ADB77700F08BE6 /* WebView.swift */; };
 		A5B09A4B27ADF7CB00F08BE6 /* MatrixVOIP.sdef in Resources */ = {isa = PBXBuildFile; fileRef = A5B09A4A27ADF7CB00F08BE6 /* MatrixVOIP.sdef */; };
 		A5B09A4D27ADF81F00F08BE6 /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B09A4C27ADF81F00F08BE6 /* Commands.swift */; };
-		A5C35EB127AE892400667A20 /* CaptureDeviceToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C35EB027AE892400667A20 /* CaptureDeviceToggle.swift */; };
+		A5C35EB127AE892400667A20 /* OverlayToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C35EB027AE892400667A20 /* OverlayToggle.swift */; };
 		A5EBE11027B332CE006CB3FF /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EBE10F27B332CE006CB3FF /* Types.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,7 +46,7 @@
 		A5B09A4A27ADF7CB00F08BE6 /* MatrixVOIP.sdef */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MatrixVOIP.sdef; sourceTree = "<group>"; };
 		A5B09A4C27ADF81F00F08BE6 /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
 		A5B09A4E27ADF9D900F08BE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5C35EB027AE892400667A20 /* CaptureDeviceToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureDeviceToggle.swift; sourceTree = "<group>"; };
+		A5C35EB027AE892400667A20 /* OverlayToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayToggle.swift; sourceTree = "<group>"; };
 		A5EBE10F27B332CE006CB3FF /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,8 +76,8 @@
 		A556437627B7A45A00FEBE71 /* Overlay */ = {
 			isa = PBXGroup;
 			children = (
-				A5C35EB027AE892400667A20 /* CaptureDeviceToggle.swift */,
 				A556437727B7A48000FEBE71 /* OverlayButton.swift */,
+				A5C35EB027AE892400667A20 /* OverlayToggle.swift */,
 				A56E118827AE9E0500C146F4 /* ControlsOverlay.swift */,
 			);
 			path = Overlay;
@@ -229,7 +229,7 @@
 				A56E118D27AEA38B00C146F4 /* AppDelegate.swift in Sources */,
 				A56E118927AE9E0500C146F4 /* ControlsOverlay.swift in Sources */,
 				A5B09A4D27ADF81F00F08BE6 /* Commands.swift in Sources */,
-				A5C35EB127AE892400667A20 /* CaptureDeviceToggle.swift in Sources */,
+				A5C35EB127AE892400667A20 /* OverlayToggle.swift in Sources */,
 				A56E118F27AEA43100C146F4 /* IntentHandlers.swift in Sources */,
 				A56E118B27AEA19700C146F4 /* Intents.intentdefinition in Sources */,
 				A5EBE11027B332CE006CB3FF /* Types.swift in Sources */,

@@ -8,6 +8,7 @@ struct OverlayButton: View {
     var body: some View {
         Button(action: action) {
             Image(systemName: imageName)
+                .foregroundStyle(.primary)
         }
         .buttonStyle(OverlayButtonStyle(backgroundMaterial: .thickMaterial))
     }

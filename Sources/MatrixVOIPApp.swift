@@ -6,7 +6,7 @@ struct MatrixVOIPApp: App {
     
     static let url = URL(string: "https://matrixvoip.dev/")!
     
-    @AppStorage("showBackButton") private var showBackButton = false
+    @AppStorage("showNavigation") private var showNavigation = false
     @AppStorage("developerExtrasEnabled") private var developerExtrasEnabled = false
     
     @StateObject private var voipCoordinator = VOIPCoordinator(url: MatrixVOIPApp.url)
@@ -19,15 +19,13 @@ struct MatrixVOIPApp: App {
         }
         .commands {
             CommandMenu("Call") {
-                if #available(macOS 12.0, *) {
-                    Button("Toggle Camera", action: voipCoordinator.toggleCamera)
-                        .keyboardShortcut("v", modifiers: [])
+                Button("Toggle Camera", action: voipCoordinator.toggleCamera)
+                    .keyboardShortcut("v", modifiers: [])
                 
-                    Button("Toggle Microphone", action: voipCoordinator.toggleMicrophone)
-                        .keyboardShortcut("m", modifiers: [])
+                Button("Toggle Microphone", action: voipCoordinator.toggleMicrophone)
+                    .keyboardShortcut("m", modifiers: [])
                 
-                    Divider()
-                }
+                Divider()
                 
                 Button("Copy Link", action: voipCoordinator.copyURL)
                 
@@ -41,7 +39,7 @@ struct MatrixVOIPApp: App {
                 Toggle("Enable Web Inspector", isOn: $developerExtrasEnabled)
                 
                 if #available(macOS 12.0, *) {
-                    Toggle("Show Back Button", isOn: $showBackButton.animation())
+                    Toggle("Show Navigation", isOn: $showNavigation.animation())
                 }
             }
             

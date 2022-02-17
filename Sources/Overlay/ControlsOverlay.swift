@@ -3,37 +3,30 @@ import SwiftUI
 @available(macOS 12.0, *)
 struct ControlsOverlay: View {
     @EnvironmentObject private var voipCoordinator: VOIPCoordinator
-    @AppStorage("showBackButton") private var showBackButton = false
     
-    private var cameraIsActive: Bool {
-        voipCoordinator.cameraCaptureState == .active
-    }
-    
-    private var microphoneIsActive: Bool {
-        voipCoordinator.microphoneCaptureState == .active
-    }
+    @AppStorage("showNavigation") private var showNavigation = false
     
     var body: some View {
-        HStack(spacing: 8) {
-            if showBackButton {
-                OverlayButton(imageName: "chevron.left", action: voipCoordinator.goBack)
-                    .transition(.scale(scale: 0, anchor: .trailing))
-                Divider()
-                    .frame(height: 22)
+        ZStack {
+            if showNavigation {
+                HStack(spacing: 8) {
+                    OverlayButton(imageName: "chevron.left", action: voipCoordinator.goBack)
+                    OverlayButton(imageName: "chevron.right", action: voipCoordinator.goForward)
+                    
+                    Divider()
+                        .frame(height: 22)
+                    
+                    // Add url bar and copy button
+                    
+                    OverlayButton(imageName: "doc.on.doc", action: voipCoordinator.copyURL)
+                }
+                .padding(.horizontal, 7)
+                .padding(.vertical, 6)
+                .background(.thinMaterial, in: Capsule())
+                .padding(.top)
+                .transition(.offset(y: -30).combined(with: .opacity))
             }
-            
-            CaptureDeviceToggle(device: .camera,
-                                isOn: cameraIsActive,
-                                action: voipCoordinator.toggleCamera)
-            
-            CaptureDeviceToggle(device: .microphone,
-                                isOn: microphoneIsActive,
-                                action: voipCoordinator.toggleMicrophone)
         }
-        .padding(.horizontal, 7)
-        .padding(.vertical, 6)
-        .background(.thinMaterial, in: Capsule())
-        .padding(.top)
     }
 }
 
