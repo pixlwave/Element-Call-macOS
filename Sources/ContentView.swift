@@ -18,6 +18,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(WebView.Coordinator(url: MatrixVOIPApp.url))
+            .environmentObject(WebView.Coordinator(url: ElementCallApp.url))
     }
 }

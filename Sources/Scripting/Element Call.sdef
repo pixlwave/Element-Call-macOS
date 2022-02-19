@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
 
-<dictionary title="MatrixVOIP">
-    <suite name="MatrixVOIP Suite" code="mxvp" description="MatrixVOIP Scripts.">
+<dictionary title="Element Call">
+    <suite name="Element Call Suite" code="elcl" description="Element Call Scripts.">
         <enumeration name="capture device" code="cdev">
             <enumerator name="camera" code="cam " description="The camera device."/>
             <enumerator name="microphone" code="mic " description="The microphone device."/>
         </enumeration>
-        <command name="toggle" code="mxvptogl" description="Toggle the chosen device on or off.">
+        <command name="toggle" code="elcltogl" description="Toggle the chosen device on or off.">
             <direct-parameter description="The capture device to be toggled.">
                 <type type="capture device"/>
             </direct-parameter>
-            <cocoa class="MatrixVOIP.ToggleDeviceCommand"/>
+            <cocoa class="ElementCall.ToggleDeviceCommand"/>
         </command>
-        <command name="join" code="mxvpjoin" description="Join the specified call.">
-            <cocoa class="MatrixVOIP.JoinCallCommand"/>
+        <command name="join" code="elcljoin" description="Join the specified call.">
+            <cocoa class="ElementCall.JoinCallCommand"/>
             <direct-parameter description="The link of the call to be joined.">
                 <type type="text"/>
             </direct-parameter>
         </command>
-        <command name="leave" code="mxvpleav" description="Leave the current call.">
-            <cocoa class="MatrixVOIP.LeaveCallCommand"/>
+        <command name="leave" code="elclleav" description="Leave the current call.">
+            <cocoa class="ElementCall.LeaveCallCommand"/>
         </command>
     </suite>
 </dictionary>

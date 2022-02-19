@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleIconFile</key>
-	<string>MatrixVOIP.icns</string>
+	<string>Element Call</string>
 	<key>INIntentsSupported</key>
 	<array>
 		<string>ToggleCameraIntent</string>
@@ -21,9 +21,9 @@
 		<string>ToggleMicrophoneIntent</string>
 	</array>
 	<key>OSAScriptingDefinition</key>
-	<string>MatrixVOIP.sdef</string>
+	<string>Element Call.sdef</string>
 	<key>SUFeedURL</key>
-	<string>https://pixlwave.github.io/MatrixVOIPAppcast.xml</string>
+	<string>https://pixlwave.uk/files/ElementCallAppcast.xml</string>
 	<key>SUPublicEDKey</key>
 	<string>WKAQP1ywMMLtFGd0IaOjKywQtA8K6bd+/LbJoiJTAng=</string>
 </dict>

@@ -37,6 +37,6 @@ struct Previews_ControlsOverlay_Previews: PreviewProvider {
         ControlsOverlay()
             .padding()
             .background(Color.gray)
-            .environmentObject(VOIPCoordinator(url: MatrixVOIPApp.url))
+            .environmentObject(VOIPCoordinator(url: ElementCallApp.url))
     }
 }

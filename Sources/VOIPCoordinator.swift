@@ -2,20 +2,31 @@ import WebKit
 import Combine
 
 class VOIPCoordinator: NSObject, ObservableObject {
-    @objc let webView = WKWebView()
-    let url: URL
+    private let url: URL
     
-    @Published private(set) var isInCall = false
+    @objc let webView = WKWebView()
+    private var webViewURLObservation: NSKeyValueObservation?
+    @Published private(set) var webViewURL: URL?
+    
+    var isInCall: Bool { webViewURL != url }
     
     var cancellables: Set<AnyCancellable> = []
     
     init(url: URL) {
         self.url = url
+        self.webViewURL = url
         
         super.init()
         
         // Observe the capture state
         // TODO: Observe the state in the web view?
+        
+        // Handle changes to the web view's URL
+        webViewURLObservation = observe(\.webView.url) { coordinator, _ in
+            if coordinator.webViewURL != coordinator.webView.url {
+                coordinator.webViewURL = coordinator.webView.url
+            }
+        }
         
         // Listen for notifications published by AppleScript commands
         NotificationCenter.default.publisher(for: .toggleDevice, object: nil)
@@ -94,11 +105,6 @@ extension VOIPCoordinator: WKNavigationDelegate, WKUIDelegate {
         
         // Otherwise the request is invalid.
         return .cancel
-    }
-    
-    #warning("Not called whilst navigating through app")
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        isInCall = webView.url != url
     }
     
     @available(macOS 12.0, *)

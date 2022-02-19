@@ -30,7 +30,7 @@ import Foundation
         
         guard
             let callURL = URL(string: callLink),
-            callURL.host == MatrixVOIPApp.url.host
+            callURL.host == ElementCallApp.url.host
         else {
             scriptErrorNumber = -50
             scriptErrorString = "Parameter error: Invalid call link supplied."
