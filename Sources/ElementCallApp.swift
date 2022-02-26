@@ -5,6 +5,7 @@ struct ElementCallApp: App {
     @NSApplicationDelegateAdaptor private var appDelegate: AppDelegate
     
     static let url = URL(string: "https://call.element.io/")!
+    static var version: String { Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "" }
     
     @AppStorage("showNavigation") private var showNavigation = false
     @AppStorage("developerExtrasEnabled") private var developerExtrasEnabled = false

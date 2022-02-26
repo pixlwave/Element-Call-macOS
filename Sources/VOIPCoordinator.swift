@@ -42,6 +42,7 @@ class VOIPCoordinator: NSObject, ObservableObject {
             .store(in: &cancellables)
         
         // Configure web view and load the base url.
+        webView.customUserAgent = userAgent()
         webView.navigationDelegate = self
         webView.uiDelegate = self
         webView.load(URLRequest(url: url))
@@ -87,6 +88,28 @@ class VOIPCoordinator: NSObject, ObservableObject {
         guard let webViewURL = webView.url else { return }
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setData(webViewURL.dataRepresentation, forType: .URL)
+    }
+    
+    
+    // MARK: - Private
+    
+    private func userAgent() -> String {
+        let macOSMajor = ProcessInfo.processInfo.operatingSystemVersion.majorVersion
+        let macOSMinor = ProcessInfo.processInfo.operatingSystemVersion.minorVersion
+        let macOSPatch = ProcessInfo.processInfo.operatingSystemVersion.patchVersion
+        
+        return "Element Call \(ElementCallApp.version) / Safari \(safariVersion()) / macOS \(macOSMajor).\(macOSMinor).\(macOSPatch)"
+    }
+    
+    private func safariVersion() -> String {
+        let script = NSAppleScript(source: "version of application \"Safari\"")
+        
+        guard
+            let result = script?.executeAndReturnError(nil),
+            let version = result.stringValue
+        else { return "" }
+        
+        return version
     }
 }
 

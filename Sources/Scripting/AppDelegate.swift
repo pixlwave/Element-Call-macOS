@@ -15,4 +15,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         return IntentHandler()
     }
+    
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        true
+    }
 }
