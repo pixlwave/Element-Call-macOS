@@ -23,7 +23,7 @@
 	<key>OSAScriptingDefinition</key>
 	<string>Element Call.sdef</string>
 	<key>SUFeedURL</key>
-	<string>https://pixlwave.uk/files/ElementCallAppcast.xml</string>
+	<string>https://pixlwave.github.io/ElementCallAppcast.xml</string>
 	<key>SUPublicEDKey</key>
 	<string>WKAQP1ywMMLtFGd0IaOjKywQtA8K6bd+/LbJoiJTAng=</string>
 </dict>
