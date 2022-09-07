@@ -1,5 +1,6 @@
 import Foundation
 
+#if os(macOS)
 @objcMembers class ToggleDeviceCommand: NSScriptCommand {
     override func performDefaultImplementation() -> Any? {
         guard
@@ -52,6 +53,7 @@ import Foundation
 extension NSScriptCommand {
     static let parameterErrorNumber = -50
 }
+#endif
 
 extension NSNotification.Name {
     static let toggleDevice = NSNotification.Name("toggleDevice")

@@ -1,3 +1,4 @@
+#if os(macOS)
 import Cocoa
 import Intents
 
@@ -20,3 +21,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         true
     }
 }
+#endif

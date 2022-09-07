@@ -4,7 +4,7 @@ import Combine
 class VOIPCoordinator: NSObject, ObservableObject {
     private let url: URL
     
-    @objc let webView = WKWebView()
+    @objc let webView: WKWebView
     private var webViewURLObservation: NSKeyValueObservation?
     @Published private(set) var webViewURL: URL?
     
@@ -15,6 +15,12 @@ class VOIPCoordinator: NSObject, ObservableObject {
     init(url: URL) {
         self.url = url
         self.webViewURL = url
+        
+        let configuration = WKWebViewConfiguration()
+        #if !os(macOS)
+        configuration.allowsInlineMediaPlayback = true
+        #endif
+        self.webView = WKWebView(frame: .zero, configuration: configuration)
         
         super.init()
         
@@ -86,8 +92,13 @@ class VOIPCoordinator: NSObject, ObservableObject {
     
     func copyURL() {
         guard let webViewURL = webView.url else { return }
+        
+        #if os(macOS)
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setData(webViewURL.dataRepresentation, forType: .URL)
+        #else
+        UIPasteboard.general.url = webViewURL
+        #endif
     }
     
     
@@ -102,6 +113,9 @@ class VOIPCoordinator: NSObject, ObservableObject {
     }
     
     private func safariVersion() -> String {
+        #if !os(macOS)
+        return ""
+        #else
         let script = NSAppleScript(source: "version of application \"Safari\"")
         
         guard
@@ -110,6 +124,7 @@ class VOIPCoordinator: NSObject, ObservableObject {
         else { return "" }
         
         return version
+        #endif
     }
 }
 

@@ -14,7 +14,6 @@
 		A56E118F27AEA43100C146F4 /* IntentHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56E118E27AEA43100C146F4 /* IntentHandlers.swift */; };
 		A57036A427B2DEFA00C15CEB /* Element Call.icns in Resources */ = {isa = PBXBuildFile; fileRef = A57036A327B2DEFA00C15CEB /* Element Call.icns */; };
 		A57EC16A27AE76E200E8A38C /* VOIPCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57EC16927AE76E200E8A38C /* VOIPCoordinator.swift */; };
-		A5A188DF27BB027400DCF129 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = A5A188DE27BB027400DCF129 /* Sparkle */; };
 		A5A188E227BB034700DCF129 /* SparkleUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A188E127BB034700DCF129 /* SparkleUpdater.swift */; };
 		A5B09A1F27ADB75C00F08BE6 /* ElementCallApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B09A1E27ADB75C00F08BE6 /* ElementCallApp.swift */; };
 		A5B09A2127ADB75C00F08BE6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B09A2027ADB75C00F08BE6 /* ContentView.swift */; };
@@ -55,7 +54,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5A188DF27BB027400DCF129 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +89,13 @@
 			path = Sparkle;
 			sourceTree = "<group>";
 		};
+		A5A69D1C28C95828003FEF2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A5B09A1227ADB75C00F08BE6 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +103,7 @@
 				A556437327B79C5A00FEBE71 /* Resources */,
 				A5B09A2427ADB75F00F08BE6 /* Preview Content */,
 				A5B09A1C27ADB75C00F08BE6 /* Products */,
+				A5A69D1C28C95828003FEF2D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,7 +167,6 @@
 			);
 			name = "Element Call";
 			packageProductDependencies = (
-				A5A188DE27BB027400DCF129 /* Sparkle */,
 			);
 			productName = MatrixVOIP;
 			productReference = A5B09A1B27ADB75C00F08BE6 /* Element Call.app */;
@@ -359,6 +364,8 @@
 		A5B09A2B27ADB75F00F08BE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Resources/Element Call.entitlements";
@@ -375,23 +382,32 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "This will allow you to be seen on a call.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This will allow you to be heard on a call.";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 0.1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = uk.pixlwave.ElementCall;
 				PRODUCT_MODULE_NAME = ElementCall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		A5B09A2C27ADB75F00F08BE6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Resources/Element Call.entitlements";
@@ -408,17 +424,24 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "This will allow you to be seen on a call.";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This will allow you to be heard on a call.";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				MARKETING_VERSION = 0.1.5;
 				PRODUCT_BUNDLE_IDENTIFIER = uk.pixlwave.ElementCall;
 				PRODUCT_MODULE_NAME = ElementCall;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -455,14 +478,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		A5A188DE27BB027400DCF129 /* Sparkle */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A5A188DD27BB027400DCF129 /* XCRemoteSwiftPackageReference "Sparkle" */;
-			productName = Sparkle;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A5B09A1327ADB75C00F08BE6 /* Project object */;
 }

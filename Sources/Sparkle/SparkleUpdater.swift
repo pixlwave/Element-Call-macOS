@@ -1,3 +1,4 @@
+#if os(macOS)
 import Foundation
 import Sparkle
 
@@ -16,3 +17,4 @@ class SparkleUpdater: ObservableObject {
         updaterController.checkForUpdates(nil)
     }
 }
+#endif

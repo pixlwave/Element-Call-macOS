@@ -6,6 +6,9 @@ struct ContentView: View {
     var body: some View {
         ZStack(alignment: .top) {
             WebView(coordinator: voipCoordinator)
+                #if !os(macOS)
+                .ignoresSafeArea()
+                #endif
             
             if #available(macOS 12.0, *) {
                 ControlsOverlay()

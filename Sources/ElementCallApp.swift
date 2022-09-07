@@ -2,7 +2,10 @@ import SwiftUI
 
 @main
 struct ElementCallApp: App {
+    #if os(macOS)
     @NSApplicationDelegateAdaptor private var appDelegate: AppDelegate
+    @StateObject private var sparkleUpdater = SparkleUpdater()
+    #endif
     
     static let url = URL(string: "https://call.element.io/")!
     static var version: String { Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "" }
@@ -11,12 +14,14 @@ struct ElementCallApp: App {
     @AppStorage("developerExtrasEnabled") private var developerExtrasEnabled = false
     
     @StateObject private var voipCoordinator = VOIPCoordinator(url: ElementCallApp.url)
-    @StateObject private var sparkleUpdater = SparkleUpdater()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(voipCoordinator)
+                #if !os(macOS)
+                .preferredColorScheme(.dark)
+                #endif
         }
         .commands {
             CommandMenu("Call") {
@@ -48,10 +53,12 @@ struct ElementCallApp: App {
                 }
             }
             
+            #if os(macOS)
             CommandGroup(after: .appInfo) {
                 Button("Check for Updates…", action: sparkleUpdater.checkForUpdates)
                     .disabled(!sparkleUpdater.canCheckForUpdates)
             }
+            #endif
             
             // Remove the New Window menu item.
             CommandGroup(replacing: CommandGroupPlacement.newItem) {
