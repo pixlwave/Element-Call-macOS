@@ -26,6 +26,13 @@
 	<string>https://pixlwave.github.io/ElementCallAppcast.xml</string>
 	<key>SUPublicEDKey</key>
 	<string>WKAQP1ywMMLtFGd0IaOjKywQtA8K6bd+/LbJoiJTAng=</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+		<string>fetch</string>
+		<string>processing</string>
+		<string>voip</string>
+	</array>
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIColorName</key>

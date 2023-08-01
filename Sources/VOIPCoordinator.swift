@@ -1,5 +1,7 @@
 import WebKit
 import Combine
+import AVFoundation
+import CallKit
 
 class VOIPCoordinator: NSObject, ObservableObject {
     private let url: URL
@@ -9,6 +11,8 @@ class VOIPCoordinator: NSObject, ObservableObject {
     @Published private(set) var webViewURL: URL?
     
     var isInCall: Bool { webViewURL != url }
+    let callController = CXCallController()
+    let callProvider = CXProvider(configuration: .init())
     
     var cancellables: Set<AnyCancellable> = []
     
@@ -19,6 +23,7 @@ class VOIPCoordinator: NSObject, ObservableObject {
         let configuration = WKWebViewConfiguration()
         #if !os(macOS)
         configuration.allowsInlineMediaPlayback = true
+        configuration.allowsPictureInPictureMediaPlayback = true
         #endif
         self.webView = WKWebView(frame: .zero, configuration: configuration)
         
@@ -31,6 +36,7 @@ class VOIPCoordinator: NSObject, ObservableObject {
         webViewURLObservation = observe(\.webView.url) { coordinator, _ in
             if coordinator.webViewURL != coordinator.webView.url {
                 coordinator.webViewURL = coordinator.webView.url
+                Task { await self.handleURLChange() }
             }
         }
         
@@ -52,6 +58,39 @@ class VOIPCoordinator: NSObject, ObservableObject {
         webView.navigationDelegate = self
         webView.uiDelegate = self
         webView.load(URLRequest(url: url))
+    }
+    
+    private var callID: UUID?
+    func handleURLChange() async {
+        do {
+            if isInCall {
+                try AVAudioSession.sharedInstance().setCategory(.playAndRecord, mode: .videoChat, options: [])
+                print("Playback OK")
+                try AVAudioSession.sharedInstance().setActive(true)
+                print("Session is Active")
+                
+                let uuid = UUID()
+                let handle = CXHandle(type: .generic, value: webViewURL?.absoluteString ?? "")
+                let startCallAction = CXStartCallAction(call: uuid, handle: handle)
+                 
+                let transaction = CXTransaction(action: startCallAction)
+                try await callController.request(transaction)
+                print("Call started successfully")
+                callID = uuid
+            } else {
+                try AVAudioSession.sharedInstance().setActive(false)
+                print("Session is Inactive")
+                
+                if let callID {
+                    let endCallAction = CXEndCallAction(call: callID)
+                    self.callID = nil
+                    try await callController.requestTransaction(with: endCallAction)
+                    print("Call ended successfully")
+                }
+            }
+        } catch {
+            print(error)
+        }
     }
     
     func toggleDevice(_ notification: Notification) {
@@ -149,5 +188,15 @@ extension VOIPCoordinator: WKNavigationDelegate, WKUIDelegate {
     func webView(_ webView: WKWebView, decideMediaCapturePermissionsFor origin: WKSecurityOrigin, initiatedBy frame: WKFrameInfo, type: WKMediaCaptureType) async -> WKPermissionDecision {
         guard origin.host == url.host else { return .deny }
         return .grant
+    }
+}
+
+extension VOIPCoordinator: CXCallObserverDelegate, CXProviderDelegate {
+    func callObserver(_ callObserver: CXCallObserver, callChanged call: CXCall) {
+        print("Call changed: \(call)")
+    }
+    
+    func providerDidReset(_ provider: CXProvider) {
+        print("Provider did reset: \(provider)")
     }
 }
